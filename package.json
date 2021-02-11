@@ -34,6 +34,10 @@
   },
   "dependencies": {
     "gatsby": "2.24.63",
+    "gatsby-plugin-sharp": "^2.14.1",
+    "gatsby-source-filesystem": "^2.3.35",
+    "gatsby-transformer-sharp": "^2.12.0",
+    "gatsby-transformer-typescript-css-modules": "^1.0.14",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "tsconfig-paths-webpack-plugin": "3.3.0"
