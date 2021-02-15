@@ -1,0 +1,23 @@
+.container img {
+  width: 50px;
+}
+
+ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 50px);
+  justify-content: end;
+  grid-gap: 10px;
+}
+
+@media (max-width: 480px) {
+  .phoneNumberLink > span {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) {
+  .phoneNumberLink > img {
+    display: none;
+  }
+}
