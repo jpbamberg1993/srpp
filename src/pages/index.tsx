@@ -1,19 +1,13 @@
 import React from "react"
 import { PageProps, graphql } from "gatsby"
-import Img from "gatsby-image"
 
 import Title from "@/components/Title"
-import { Banner } from "@/components/Banner"
+import Banner from "@/components/Banner"
 
 const Home: React.FC<PageProps> = ({ data }) => (
   <main className="container">
     <Title />
     <Banner bgImage={data.file.childImageSharp.fluid} />
-    {/* <Img
-      className="headshot"
-      fixed={data.file.childImageSharp.fixed}
-      alt=""
-    /> */}
   </main>
 )
 

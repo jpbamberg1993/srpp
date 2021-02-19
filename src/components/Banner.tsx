@@ -5,7 +5,7 @@ interface Props {
   bgImage: FluidObject
 }
 
-export class Banner extends React.Component<Props> {
+class Banner extends React.Component<Props> {
   render() {
     return (
       <div>
@@ -15,8 +15,4 @@ export class Banner extends React.Component<Props> {
   }
 }
 
-// export const Banner = (props: ImageProp) => (
-//   <div>
-//     <Img fixed={props.bgImage} />
-//   </div>
-// )
+export default Banner
