@@ -5,8 +5,9 @@
 ul {
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 50px);
+  grid-template-columns: repeat(2, 50px) auto;
   justify-content: end;
+  align-items: center;
   grid-gap: 10px;
 }
 
