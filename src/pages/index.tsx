@@ -1,14 +1,15 @@
 import React from "react"
 import { PageProps, graphql } from "gatsby"
 
+import Layout from "@/components/Layout"
 import Title from "@/components/Title"
 import Banner from "@/components/Banner"
 
 const Home: React.FC<PageProps> = ({ data }) => (
-  <main className="container">
+  <Layout>
     <Title />
     <Banner bgImage={data.file.childImageSharp.fluid} />
-  </main>
+  </Layout>
 )
 
 export const query = graphql`

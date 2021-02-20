@@ -6,7 +6,7 @@ interface Props {
   children: ReactNode
 }
 
-const Layout = ({children}: Props) => {
+const Layout = ({children}: Props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -28,13 +28,10 @@ const Layout = ({children}: Props) => {
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
             margin: 'a auto',
             maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
           }}
         >
           {children}
@@ -42,6 +39,6 @@ const Layout = ({children}: Props) => {
       </>
     )}
   />
-}
+)
 
-export default Layout
+export default Layout 
