@@ -1,2 +1,2 @@
-export const container: string;
+export const contactList: string;
 export const phoneNumberLink: string;

@@ -2,12 +2,12 @@ import React from "react"
 import { PageProps, graphql } from "gatsby"
 
 import Layout from "@/components/Layout"
-import Title from "@/components/Title"
+import Contact from "@/components/Contact"
 import Banner from "@/components/Banner"
 
 const Home: React.FC<PageProps> = ({ data }) => (
   <Layout>
-    <Title />
+    <Contact />
     <Banner bgImage={data.file.childImageSharp.fluid} />
   </Layout>
 )
