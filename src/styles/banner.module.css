@@ -1,0 +1,19 @@
+.header {
+  background: black;
+  position: relative;
+  color: white;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+}
+
+.backgroundImg {
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.textToOverlay {
+  position: absolute;
+  z-index: 10;
+  padding-left: 10px;
+}

@@ -1,5 +1,7 @@
-import React from "react"
-import Img, { FluidObject } from "gatsby-image"
+import React from 'react'
+import Img, { FluidObject } from 'gatsby-image'
+
+import bannerStyles from '../styles/banner.module.css'
 
 interface Props {
   bgImage: FluidObject
@@ -8,9 +10,16 @@ interface Props {
 class Banner extends React.Component<Props> {
   render() {
     return (
-      <div>
-        <Img fluid={this.props.bgImage} />
-      </div>
+      <header className={bannerStyles.header}>
+        <Img
+          fluid={this.props.bgImage}
+          alt='Trucks at trash dump'
+          className={bannerStyles.backgroundImg}
+        />
+        <h1 className={bannerStyles.textToOverlay}>
+          South Reef Property Preservation Inc.
+        </h1>
+      </header>
     )
   }
 }
