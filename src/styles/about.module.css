@@ -4,3 +4,7 @@
   text-align: center;
   margin: auto 2rem;
 }
+
+.aboutContainer img {
+  justify-self: center;
+}
