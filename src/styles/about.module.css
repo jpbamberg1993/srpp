@@ -1,0 +1,6 @@
+.aboutContainer div {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  margin: auto 2rem;
+}
