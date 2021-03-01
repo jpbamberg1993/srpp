@@ -1,0 +1,24 @@
+.container {
+  position: relative;
+  max-width: 900px;
+  height: 600px;
+  border: 2px solid white;
+}
+
+.img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 900px 100%;
+}
+
+.backgroundImg {
+  background-image: url('../images/pool-after.jpg');
+}
+
+.forgroundImg {
+  background-image: url('../images/pool-before.jpg');
+  width: 50%;
+}
