@@ -1,4 +1,5 @@
 import React from 'react'
+import { callbackify } from 'util'
 
 import styles from '../styles/before-after-slider.module.css'
 
@@ -19,13 +20,10 @@ class BeforeAfterSlider extends React.Component<{}, State> {
     const sliderPositionWidth: string = this.state.sliderPosition + '%'
     return (
         <section className={styles.container}>
-          <div
-            className={`${styles.img} ${styles.backgroundImg}`}>
-          </div>
+          <div className={`${styles.img} ${styles.backgroundImg}`}></div>
           <div
             className={`${styles.img} ${styles.forgroundImg}`}
-            style={{ width: sliderPositionWidth }}>
-          ></div>
+            style={{ width: sliderPositionWidth }}></div>
           <input
             type="range"
             min="1"
@@ -35,7 +33,9 @@ class BeforeAfterSlider extends React.Component<{}, State> {
             name="slider"
             id="slider"
             onChange={this.handleChange} />
-          {/* <div className="slider-button"></div> */}
+          <div
+            className={styles.sliderButton}
+            style={{ left: `calc(${sliderPositionWidth} - 17.5px)` }}></div>
         </section>
     )
   }  
