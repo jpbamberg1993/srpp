@@ -12,3 +12,11 @@
 .aboutContainer img {
   justify-self: center;
 }
+
+.aboutContainer p {
+  margin-bottom: 0;
+}
+
+.subSection {
+  margin-bottom: 1rem;
+}

@@ -208,11 +208,6 @@
     	}
     }
 
-    .truck {
-
-    	animation: vib .05s linear infinite;
-    }
-
     @keyframes move_left {
 
     	100% {
