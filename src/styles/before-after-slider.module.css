@@ -11,8 +11,6 @@
   max-width: 900px;
   height: 600px;
   border: 2px solid white;
-  display: grid;
-  justify-items: end;
 }
 
 .container .img {
@@ -22,7 +20,6 @@
   width: 100%;
   height: 100%;
   background-size: 900px 100%;
-  background-position: 0 0 0 -50px;
 }
 
 .container .backgroundImg {

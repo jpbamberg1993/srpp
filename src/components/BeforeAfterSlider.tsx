@@ -19,10 +19,12 @@ class BeforeAfterSlider extends React.Component<{}, State> {
     const sliderPositionWidth: string = this.state.sliderPosition + '%'
     return (
         <section className={styles.container}>
-          <div className={`${styles.img} ${styles.backgroundImg}`}></div>
+          <div
+            className={`${styles.img} ${styles.backgroundImg}`}>
+          </div>
           <div
             className={`${styles.img} ${styles.forgroundImg}`}
-            style={{ width: sliderPositionWidth }}
+            style={{ width: sliderPositionWidth }}>
           ></div>
           <input
             type="range"
