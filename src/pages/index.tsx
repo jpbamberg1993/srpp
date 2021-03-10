@@ -7,6 +7,7 @@ import Contact from '@/components/Contact'
 import Banner from '@/components/Banner'
 import About from '@/components/About'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
+import ContactForm from '@/components/ContactForm'
 
 type IndexQueryProps = {
   tucksatdump: {
@@ -24,6 +25,7 @@ const Home: React.FC<IndexPageProps> = (props: IndexPageProps) => (
     <Banner bgImage={props.data.tucksatdump.childImageSharp.fluid} />
     <About />
     <BeforeAfterSlider />
+    <ContactForm />
   </Layout>
 )
 
