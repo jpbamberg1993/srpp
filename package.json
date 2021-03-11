@@ -1,9 +1,9 @@
 {
   "name": "gatsby-starter-ts",
-  "description": "A TypeScript starter for Gatsby that includes all you need to build amazing projects",
+  "description": "A marketing site for South Reef Property Preserve.",
   "version": "1.0.0",
   "private": true,
-  "author": "João Pedro Schmitz <oi@joaopedro.cc> (joaopedro.cc)",
+  "author": "J. Paul Bamberg",
   "license": "MIT",
   "keywords": [
     "gatsby",
