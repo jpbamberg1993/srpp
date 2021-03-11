@@ -1,12 +1,12 @@
 import React from 'react'
 
-import contactStyles from '../styles/contact.module.css'
+import styles from '../styles/contact.module.css'
 import facebookIcon from '../images/facebook-icon.svg'
 import mailIcon from '../images/mail-outline-icon.svg'
 import phoneIcon from '../images/phone-icon.svg'
 
 const Contact: React.FC = () => (
-  <ul className={contactStyles.contactList}>
+  <ul className={styles.contactList}>
     <li>
       <a href='https://www.facebook.com/srppfl' rel='external'>
         <img src={facebookIcon} alt='facebook icon' />
@@ -18,7 +18,7 @@ const Contact: React.FC = () => (
       </a>
     </li>
     <li>
-      <a href='tel:+19547295014' rel='nofollow' className={contactStyles.phoneNumberLink}>
+      <a href='tel:+19547295014' rel='nofollow' className={styles.phoneNumberLink}>
         <img src={phoneIcon} alt='call phone number icon' />
         <span>954-729-5014</span>
       </a>
