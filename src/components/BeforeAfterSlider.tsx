@@ -1,5 +1,4 @@
 import React from 'react'
-import { callbackify } from 'util'
 
 import styles from '../styles/before-after-slider.module.css'
 
