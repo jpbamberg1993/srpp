@@ -1,12 +1,46 @@
 import React from 'react'
+import { styled } from '../styles/theme'
 
-import styles from '../styles/contact.module.css'
 import facebookIcon from '../images/facebook-icon.svg'
 import mailIcon from '../images/mail-outline-icon.svg'
 import phoneIcon from '../images/phone-icon.svg'
 
+const ContactList = styled.ul`
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(2, 50px) auto;
+  justify-content: end;
+  align-items: center;
+  grid-gap: 10px;
+  margin: 5px;
+  height: 50px;
+
+  img {
+    width: 50px;
+    margin-bottom: 0;
+  }
+
+  li {
+    margin-bottom: 0;
+  }
+`
+
+const PhoneNumberLink = styled.a`
+  @media (max-width: 480px) {
+    & > span {
+      display: none;
+    }
+  }
+
+  @media (min-width: 481px) {
+    & > img {
+      display: none;
+    }
+  }
+`
+
 const Contact: React.FC = () => (
-  <ul className={styles.contactList}>
+  <ContactList>
     <li>
       <a href='https://www.facebook.com/srppfl' rel='external'>
         <img src={facebookIcon} alt='facebook icon' />
@@ -18,12 +52,12 @@ const Contact: React.FC = () => (
       </a>
     </li>
     <li>
-      <a href='tel:+19547295014' rel='nofollow' className={styles.phoneNumberLink}>
+      <PhoneNumberLink href='tel:+19547295014' rel='nofollow'>
         <img src={phoneIcon} alt='call phone number icon' />
         <span>954-729-5014</span>
-      </a>
+      </PhoneNumberLink>
     </li>
-  </ul>
+  </ContactList>
 )
 
 export default Contact

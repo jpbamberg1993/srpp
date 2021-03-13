@@ -1,13 +1,32 @@
 import React from 'react'
+import { styled } from '../styles/theme'
 
-import styles from '@/styles/about.module.css'
 import drivingBobcat from '@/images/bobcat-animated.svg'
 import drivingPickupTruck from '@/images/driving-pickup-truck-animated.svg'
 import manLoadingTruck from '@/images/trash-man-truck-animated.svg'
 
+const SectionComponent = styled.section`
+  margin-top: 1rem;
+
+  div {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin: auto 2rem;
+  }
+
+  img {
+    justify-self: center;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+`
+
 const About: React.FC = () => (
-  <section className={styles.aboutContainer}>
-    <div className={styles.subSection}>
+  <SectionComponent>
+    <div>
       <p>
         We provide preservation services to mortgage brokers, financial institutions and real estate developers with a focus on special assets.
       </p>
@@ -25,7 +44,7 @@ const About: React.FC = () => (
       </p>
       <img src={drivingBobcat} alt='an image of a man operating a bobcat grapple bucket' />
     </div>
-  </section>
+  </SectionComponent>
 )
 
 export default About

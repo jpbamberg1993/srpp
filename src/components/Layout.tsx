@@ -1,6 +1,7 @@
 import React, {ReactNode} from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { GlobalStyle } from '../styles/theme'
 
 interface Props {
   children: ReactNode
@@ -28,12 +29,7 @@ const Layout = ({children}: Props) => (
         >
           <html lang="en" />
         </Helmet>
-        <div
-          style={{
-            margin: 'a auto',
-            maxWidth: 960,
-          }}
-        >
+        <div>
           {children}
         </div>
       </>
