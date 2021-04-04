@@ -4,7 +4,7 @@ import { ContactFormElement } from '../styles/contact-form-element';
 
 const ContactForm: React.FC = () => {
   return (
-    <form method="post" name="contact" data-netlify="true" netlify-honeypot="bot-field">
+    <ContactFormElement method="post" name="contact" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
 
@@ -30,7 +30,7 @@ const ContactForm: React.FC = () => {
       </label>
       <button type="submit">Send</button>
       <input type="reset" value="Clear" />
-    </form>
+    </ContactFormElement>
   )
 }
 
