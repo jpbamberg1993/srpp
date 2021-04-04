@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
 import { ContactFormElement } from '../styles/contact-form-element';
 
 const ContactForm: React.FC = () => {
@@ -17,10 +16,10 @@ const ContactForm: React.FC = () => {
         Email
         <input type="email" name="email" id="email" />
       </label>
-      <label>
+      {/* <label>
         Phone number
         <input type="tel" name="phone number" id="phone-number" />
-      </label>
+      </label> */}
       <label>
         Subject
         <input type="text" name="subject" id="subject" />
