@@ -19,7 +19,7 @@ const ContactForm: React.FC = () => {
       </label>
       <label>
         Phone number
-        <input type="tel" name="phone" id="phone" />
+        <input type="tel" name="phone number" id="phone-number" />
       </label>
       <label>
         Subject
