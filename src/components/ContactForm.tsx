@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import { ContactFormElement } from '../styles/contact-form-element';
 
 const ContactForm: React.FC = () => {
-  const [value, setValue] = useState()
-
   return (
-    <form method="post" name="contact" data-netlify="true" netlify-honeypot="bot-field">
+    <ContactFormElement method="post" name="contact" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
 
@@ -20,10 +19,7 @@ const ContactForm: React.FC = () => {
       </label>
       <label>
         Phone number
-        <PhoneInput
-          country="US"
-          value={value}
-          onChange={setValue} />
+        <input type="tel" name="phone" id="phone" />
       </label>
       <label>
         Subject
@@ -35,7 +31,7 @@ const ContactForm: React.FC = () => {
       </label>
       <button type="submit">Send</button>
       <input type="reset" value="Clear" />
-    </form>
+    </ContactFormElement>
   )
 }
 
