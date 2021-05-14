@@ -313,6 +313,6 @@ pre.code.fullwidth {
 `
 
 export const GlobalStyle = createGlobalStyle`
-${reset()}
-${styles()}
+  ${reset()}
+  ${styles()}
 `
