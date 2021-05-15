@@ -1,17 +1,15 @@
 import React from 'react'
 import 'react-phone-number-input/style.css'
-import { StyledContactForm } from '../styles/contact-form.css';
+import { StyledContactForm } from '../styles/contact-form.css'
+import { Field } from './Field'
 
 interface IProps {
-  action: string;
+  action: string
+  render: () => React.ReactNode
 }
 
 export interface IValues {
-  name: string
-  email: string
-  phoneNumber: string
-  subject: string
-  message: string
+  [key: string]: string
 }
 
 export interface IErrors {
@@ -23,6 +21,12 @@ interface IState {
   errors: IErrors
   submitSuccess?: boolean
 }
+
+export interface IFormContext extends IState {
+  setValues: (value: IValues) => void
+}
+
+export const FormContext = React.createContext<IFormContext|undefined>(undefined)
 
 class ContactForm extends React.Component<IProps, IState> {
   constructor(props: IProps) {
@@ -44,19 +48,23 @@ class ContactForm extends React.Component<IProps, IState> {
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.setValues = this.setValues.bind(this)
   }
 
   private hasErrors(errors: IErrors): boolean {
     let hasError: boolean = false
-    Object.keys(errors).map((key: string): void => {
+    Object.keys(errors).forEach((key: string) => {
       if (errors[key].length > 0) {
         hasError = true
       }
     })
+
     return hasError
   }
 
-  handleInputChange(e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) {
+  private handleInputChange(
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+  ): void {
     const target = e.target
     const value = target.value
     const name = target.name
@@ -76,78 +84,66 @@ class ContactForm extends React.Component<IProps, IState> {
   }
 
   private validateForm(): boolean {
+    // todo: validate the form
     return true
   }
 
   private async submitForm(): Promise<boolean> {
+    // todo: submit the form
     return true
   }
 
+  private setValues(values: IValues) {
+    this.setState({ values: { ...this.state.values, ...values } })
+  }
+
   render() {
-    const { submitSuccess, errors } = this.state
+    const { values, submitSuccess, errors } = this.state
+    const context: IFormContext = {
+      ...this.state,
+      setValues: this.setValues
+    }
 
     return (
-      <StyledContactForm 
-        name="contact"
-        method="post"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}
-        noValidate={true}
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <input type="hidden" name="bot-field" />
+      <FormContext.Provider value={context}>
+        <StyledContactForm 
+          name="contact"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={this.handleSubmit}
+          noValidate={true}
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" />
 
-        <label>
-          Name
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={this.state.values.name}
-            onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Email
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={this.state.values.email}
-            onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Phone number
-          <input
-            type="tel"
-            name="phoneNumber"
-            id="phone-number" 
-            value={this.state.values.phoneNumber}
-            onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Subject
-          <input
-            type="text"
-            name="subject"
-            id="subject"
-            value={this.state.values.subject}
-            onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Message
-          <textarea
-            name="message"
-            id="message"
-            rows={5}
-            value={this.state.values.message}
-            onChange={this.handleInputChange} />
-        </label>
-        <button type="submit" disabled={this.hasErrors(errors)}>
-          Send
-        </button>
-        <input type="reset" value="Clear" />
-      </StyledContactForm>
+          <Field id="name" label="Name" value={values.name}></Field>
+          <Field id="email" label="Email" value={values.email}></Field>
+          <Field id="phoneNumber" label="Phone number" value={values.phoneNumber}></Field>
+          <Field id="subject" label="Subject" value={values.subject}></Field>
+          <Field id="message" label="Message" value={values.message} editor="multilinetextbox"></Field>
+
+          <button type="submit" disabled={this.hasErrors(errors)}>
+            Send
+          </button>
+
+          {submitSuccess && (
+            <p className="alter alert-info" role="alert">
+              The form was successfully submitted!
+            </p>
+          )}
+          {submitSuccess === false && !this.hasErrors(errors) && (
+            <p className="alert alert-danger" role="alert">
+              Sorry, an unexpected error occurred.
+            </p>
+          )}
+          {submitSuccess === false && this.hasErrors(errors) && (
+            <p className="alert alert-danger" role="alert">
+              Sorry, the form is invalid. Please review, update and try again.
+            </p>
+          )}
+        </StyledContactForm>
+      </FormContext.Provider>
     )
   }
 }
