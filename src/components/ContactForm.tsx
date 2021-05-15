@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import 'react-phone-number-input/style.css'
 import { StyledContactForm } from '../styles/contact-form.css';
-import value from '../declarations';
 
 interface IProps {
   action: string;
 }
 
-interface IValues {
+export interface IValues {
   name: string
   email: string
   phoneNumber: string
@@ -30,6 +29,7 @@ class ContactForm extends React.Component<IProps, IState> {
     super(props)
 
     const errors: IErrors = {}
+
     const values: IValues = {
       name: '',
       email: '',
