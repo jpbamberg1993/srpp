@@ -1,6 +1,7 @@
 import React from 'react'
-import { IErrors, IFormContext, FormContext } from './ContactForm';
+import { IErrors, IFormContext, FormContext } from './Form';
 import { StyledFormField } from '../styles/form-field.css'
+import { IValidation } from '../utils/validations';
 
 type Editor = 'textbox' | 'multilinetextbox'
 
@@ -9,6 +10,7 @@ export interface IFieldProps {
   label: string
   editor?: Editor
   value?: any
+  validation?: IValidation
 }
 
 export const Field: React.FunctionComponent<IFieldProps> = ({

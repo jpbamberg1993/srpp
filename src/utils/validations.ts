@@ -1,4 +1,4 @@
-import { IValues } from "@/components/ContactForm";
+import { IValues } from "@/components/Form";
 
 export interface IValidation {
   rule: (values: IValues, fieldName: string, args: any) => string
