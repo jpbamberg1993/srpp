@@ -1,29 +1,35 @@
 import React from 'react'
 import Form, { IFields } from './Form'
 import { Field } from './Field';
+import { required, isEmail, isPhoneNumber } from '../utils/validations';
 
 export const ContactForm: React.FunctionComponent = () => {
   const fields: IFields = {
     name: {
       id: 'name',
-      label: 'Name'
+      label: 'Name',
+      validation: { rule: required }
     },
     email: {
       id: 'email',
-      label: 'Email'
+      label: 'Email',
+      validation: { rule: isEmail }
     },
     phoneNumber: {
       id: 'phoneNumber',
-      label: 'Phone number'
+      label: 'Phone number',
+      validation: { rule: isPhoneNumber }
     },
     subject: {
       id: 'subject',
-      label: 'Subject'
+      label: 'Subject',
+      validation: { rule: required }
     },
     message: {
       id: 'message',
       label: 'Message',
-      editor: 'multilinetextbox'
+      editor: 'multilinetextbox',
+      validation: { rule: required }
     }
   }
 

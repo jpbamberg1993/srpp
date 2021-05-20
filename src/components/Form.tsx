@@ -29,6 +29,7 @@ interface IState {
 
 export interface IFormContext extends IState {
   setValues: (value: IValues) => void
+  validate: (fieldName: string) => void
 }
 
 export const FormContext = React.createContext<IFormContext|undefined>(undefined)
@@ -54,6 +55,7 @@ class Form extends React.Component<IProps, IState> {
 
     this.handleInputChange = this.handleInputChange.bind(this)
     this.setValues = this.setValues.bind(this)
+    this.validate = this.validate.bind(this)
   }
 
   private hasErrors(errors: IErrors): boolean {
@@ -88,13 +90,27 @@ class Form extends React.Component<IProps, IState> {
     }
   }
 
-  // private validate(fieldName: string): string {
-  //   let newError: string = ""
+  private validate(fieldName: string): string {
+    let newError: string = ""
 
-  //   if (
-  //     this.props.fields
-  //   )
-  // } 
+    if (
+      this.props.fields[fieldName] &&
+      this.props.fields[fieldName].validation
+    ) {
+      newError = this.props.fields[fieldName].validation.rule(
+        this.state.values,
+        fieldName,
+        this.props.fields[fieldName].validation.args
+      )
+    }
+
+    this.state.errors[fieldName] = newError
+    this.setState({
+      errors: { ...this.state.errors, [fieldName]: newError }
+    })
+
+    return newError
+  } 
 
   private validateForm(): boolean {
     // todo: validate the form
@@ -114,6 +130,7 @@ class Form extends React.Component<IProps, IState> {
     const { values, submitSuccess, errors } = this.state
     const context: IFormContext = {
       ...this.state,
+      validate: this.validate,
       setValues: this.setValues
     }
 

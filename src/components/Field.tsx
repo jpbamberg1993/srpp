@@ -13,6 +13,13 @@ export interface IFieldProps {
   validation?: IValidation
 }
 
+const getError = (errors: IErrors, id: string): string => {
+  if (Object.prototype.hasOwnProperty.call(errors, id)) {
+    return errors[id]
+  }
+  return ''
+}
+
 export const Field: React.FunctionComponent<IFieldProps> = ({
   id,
   label,
@@ -25,7 +32,7 @@ export const Field: React.FunctionComponent<IFieldProps> = ({
         <StyledFormField>
           <label htmlFor={id}>{label}</label>
 
-          {editor!.toLowerCase() === "textbox" && (
+          {editor.toLowerCase() === "textbox" && (
             <input
               id={id}
               type="text"
@@ -35,12 +42,12 @@ export const Field: React.FunctionComponent<IFieldProps> = ({
                   return context.setValues({[id]: e.currentTarget.value})
                 }
               }
-              onBlur={(e: React.FormEvent<HTMLInputElement>) => console.log(e)}
+              onBlur={(e: React.FormEvent<HTMLInputElement>) => context.validate(id)}
               className="formControl"
             />
           )}
 
-          {editor!.toLowerCase() === "multilinetextbox" && (
+          {editor.toLowerCase() === "multilinetextbox" && (
             <textarea
               id={id}
               value={value}
@@ -49,9 +56,15 @@ export const Field: React.FunctionComponent<IFieldProps> = ({
                   return context.setValues({[id]: e.currentTarget.value})
                 }
               }
-              onBlur={(e: React.FormEvent<HTMLTextAreaElement>) => console.log(e)}
+              onBlur={(e: React.FormEvent<HTMLTextAreaElement>) => context.validate(id)}
               className="formControl"
             />
+          )}
+
+          {getError(context.errors, id) && (
+            <div style={{ color: "red", fontSize: "80%" }}>
+              <p>{getError(context.errors, id)}</p>
+            </div>
           )}
         </StyledFormField>
       )}
