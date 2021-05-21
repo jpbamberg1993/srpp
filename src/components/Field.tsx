@@ -20,6 +20,10 @@ const getError = (errors: IErrors, id: string): string => {
   return ''
 }
 
+const getEditorStyle = (errors: IErrors, id: string): any => {
+  return getError(errors, id) ? { borderColor: "red" } : {}
+}
+
 export const Field: React.FunctionComponent<IFieldProps> = ({
   id,
   label,
@@ -44,6 +48,7 @@ export const Field: React.FunctionComponent<IFieldProps> = ({
               }
               onBlur={(e: React.FormEvent<HTMLInputElement>) => context.validate(id)}
               className="formControl"
+              style={getEditorStyle(context.errors, id)}
             />
           )}
 
@@ -58,6 +63,7 @@ export const Field: React.FunctionComponent<IFieldProps> = ({
               }
               onBlur={(e: React.FormEvent<HTMLTextAreaElement>) => context.validate(id)}
               className="formControl"
+              style={getEditorStyle(context.errors, id)}
             />
           )}
 
