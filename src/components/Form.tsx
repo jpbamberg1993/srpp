@@ -170,7 +170,7 @@ class Form extends React.Component<IProps, IState> {
           noValidate={true}
           data-netlify="true"
         >
-          <input type="hidden" name="contact-us" value="contact_us" />
+          <input type="hidden" name="form-name" value="contact-us" />
 
           {this.props.render()}
 
