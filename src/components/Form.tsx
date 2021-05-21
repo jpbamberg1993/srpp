@@ -34,6 +34,12 @@ export interface IFormContext extends IState {
 
 export const FormContext = React.createContext<IFormContext|undefined>(undefined)
 
+const encode = (data): string => {
+  return Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&')
+}
+
 class Form extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props)
@@ -122,12 +128,24 @@ class Form extends React.Component<IProps, IState> {
     })
 
     this.setState({ errors })
+
     return !this.hasErrors(errors)
   }
 
   private async submitForm(): Promise<boolean> {
-    // todo: submit the form
-    return true
+    try {
+      const result = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact', ...this.state.values })
+      })
+      console.log(result)
+      
+      return true
+    } catch (error) {
+      console.error(error)
+      return false
+    }
   }
 
   private setValues(values: IValues) {
