@@ -134,7 +134,7 @@ class Form extends React.Component<IProps, IState> {
 
   private async submitForm(): Promise<boolean> {
     try {
-      const body = encode({ 'form-name': 'contact', ...this.state.values })
+      const body = encode({ 'form-name': 'contact-us', ...this.state.values })
       console.log(body)
       
       const result = await fetch('/', {
