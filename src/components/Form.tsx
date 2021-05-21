@@ -166,16 +166,9 @@ class Form extends React.Component<IProps, IState> {
     return (
       <FormContext.Provider value={context}>
         <StyledContactForm 
-          name="contact"
-          method="post"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
           noValidate={true}
         >
-          <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="bot-field" />
-
           {this.props.render()}
 
           <button type="submit" disabled={this.hasErrors(errors)}>
