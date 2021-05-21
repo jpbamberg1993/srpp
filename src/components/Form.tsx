@@ -168,7 +168,7 @@ class Form extends React.Component<IProps, IState> {
         <StyledContactForm 
           onSubmit={this.handleSubmit}
           noValidate={true}
-          data-netlify={true}
+          data-netlify="true"
         >
           {this.props.render()}
 
