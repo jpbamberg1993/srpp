@@ -56,6 +56,8 @@ class Form extends React.Component<IProps, IState> {
     this.handleInputChange = this.handleInputChange.bind(this)
     this.setValues = this.setValues.bind(this)
     this.validate = this.validate.bind(this)
+    this.validateForm = this.validateForm.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   private hasErrors(errors: IErrors): boolean {
@@ -113,8 +115,14 @@ class Form extends React.Component<IProps, IState> {
   } 
 
   private validateForm(): boolean {
-    // todo: validate the form
-    return true
+    const errors: IErrors = {}
+
+    Object.keys(this.props.fields).forEach((fieldName: string) => {
+      errors[fieldName] = this.validate(fieldName)
+    })
+
+    this.setState({ errors })
+    return !this.hasErrors(errors)
   }
 
   private async submitForm(): Promise<boolean> {
