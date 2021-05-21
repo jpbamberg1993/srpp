@@ -168,6 +168,7 @@ class Form extends React.Component<IProps, IState> {
         <StyledContactForm 
           onSubmit={this.handleSubmit}
           noValidate={true}
+          data-netlify="true"
         >
           <input type="hidden" name="contact-us" value="contact_us" />
 
