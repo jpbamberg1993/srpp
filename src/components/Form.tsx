@@ -137,12 +137,11 @@ class Form extends React.Component<IProps, IState> {
     try {
       const body = encode({ 'form-name': 'contact', ...this.state.values })
       
-      const result = await fetch('/', {
+      await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body
       })
-      console.log(result)
       
       return true
     } catch (error) {
