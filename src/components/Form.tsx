@@ -1,7 +1,7 @@
 import React from 'react'
 import 'react-phone-number-input/style.css'
 import { StyledContactForm } from '../styles/contact-form.css'
-import { Field, IFieldProps } from './Field';
+import { IFieldProps } from './Field';
 
 export interface IFields {
   [key: string]: IFieldProps
@@ -47,7 +47,8 @@ class Form extends React.Component<IProps, IState> {
     const errors: IErrors = {}
 
     const values: IValues = {
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
       phoneNumber: '',
       subject: '',
@@ -165,7 +166,8 @@ class Form extends React.Component<IProps, IState> {
     return (
       <FormContext.Provider value={context}>
         <form name="contact" netlify="true" netlify-honeypot="bot-field" hidden>
-          <input type="text" name="name" />
+          <input type="text" name="firstName" />
+          <input type="text" name="lastName" />
           <input type="email" name="email" />
           <input type="text" name="phoneNumber" />
           <input type="text" name="subject" />
@@ -173,6 +175,7 @@ class Form extends React.Component<IProps, IState> {
         </form>
 
         <StyledContactForm onSubmit={this.handleSubmit} noValidate={true}>
+
           {this.props.render()}
 
           <button type="submit" disabled={this.hasErrors(errors)}>

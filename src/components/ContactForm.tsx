@@ -5,9 +5,14 @@ import { required, isEmail, isPhoneNumber } from '../utils/validations';
 
 export const ContactForm: React.FunctionComponent = () => {
   const fields: IFields = {
-    name: {
-      id: 'name',
-      label: 'Name',
+    firstName: {
+      id: 'firstName',
+      label: 'First name',
+      validation: { rule: required }
+    },
+    lastName: {
+      id: 'lastName',
+      label: 'Last name',
       validation: { rule: required }
     },
     email: {
@@ -39,7 +44,8 @@ export const ContactForm: React.FunctionComponent = () => {
       fields={fields} 
       render={() => (
         <React.Fragment>
-          <Field {...fields.name} />
+          <Field {...fields.firstName} />
+          <Field {...fields.lastName} />
           <Field {...fields.email} />
           <Field {...fields.phoneNumber} />
           <Field {...fields.subject} />
