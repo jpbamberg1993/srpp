@@ -164,6 +164,7 @@ class Form extends React.Component<IProps, IState> {
 
     return (
       <FormContext.Provider value={context}>
+        {/* This just tells netlify forms what out form is going to look like */}
         <form name="contact" netlify="true" netlify-honeypot="bot-field" hidden>
           <input type="text" name="firstName" />
           <input type="text" name="lastName" />

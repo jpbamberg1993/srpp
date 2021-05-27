@@ -2,6 +2,7 @@ import React from 'react'
 import Form, { IFields } from './Form'
 import { Field } from './Field';
 import { required, isEmail, isPhoneNumber } from '../utils/validations';
+import { StyledFormRow } from '../styles/form-row.css';
 
 export const ContactForm: React.FunctionComponent = () => {
   const fields: IFields = {
@@ -44,12 +45,22 @@ export const ContactForm: React.FunctionComponent = () => {
       fields={fields} 
       render={() => (
         <React.Fragment>
-          <Field {...fields.firstName} />
-          <Field {...fields.lastName} />
-          <Field {...fields.email} />
-          <Field {...fields.phoneNumber} />
-          <Field {...fields.subject} />
-          <Field {...fields.message} />
+          <StyledFormRow>
+            <Field {...fields.firstName} />
+            <Field {...fields.lastName} />
+          </StyledFormRow>
+          <StyledFormRow>
+            <Field {...fields.email} />
+          </StyledFormRow>
+          <StyledFormRow>
+            <Field {...fields.phoneNumber} />
+          </StyledFormRow>
+          <StyledFormRow>
+            <Field {...fields.subject} />
+          </StyledFormRow>
+          <StyledFormRow>
+            <Field {...fields.message} />
+          </StyledFormRow>
         </React.Fragment>
       )}
     />

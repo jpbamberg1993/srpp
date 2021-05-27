@@ -1,6 +1,6 @@
 import React from 'react'
 import { IErrors, IFormContext, FormContext } from './Form';
-import { StyledFormField } from '../styles/form-field.css'
+import { StyledFormCol } from '../styles/form-field.css'
 import { IValidation } from '../utils/validations';
 
 type Editor = 'textbox' | 'multilinetextbox'
@@ -33,46 +33,50 @@ export const Field: React.FunctionComponent<IFieldProps> = ({
   return (
     <FormContext.Consumer>
       {(context: IFormContext) => (
-        <StyledFormField>
-          <label htmlFor={id}>{label}</label>
+        <StyledFormCol>
+          <div className="form-field">
+            <div className="form-field__control">
+              <label htmlFor={id} className="form-field__label">{label}</label>
 
-          {editor.toLowerCase() === "textbox" && (
-            <input
-              id={id}
-              type="text"
-              value={value}
-              onChange={
-                (e: React.FormEvent<HTMLInputElement>) => {
-                  return context.setValues({[id]: e.currentTarget.value})
-                }
-              }
-              onBlur={(e: React.FormEvent<HTMLInputElement>) => context.validate(id)}
-              className="formControl"
-              style={getEditorStyle(context.errors, id)}
-            />
-          )}
+              {editor.toLowerCase() === "textbox" && (
+                <input
+                  id={id}
+                  type="text"
+                  value={value}
+                  onChange={
+                    (e: React.FormEvent<HTMLInputElement>) => {
+                      return context.setValues({[id]: e.currentTarget.value})
+                    }
+                  }
+                  onBlur={(e: React.FormEvent<HTMLInputElement>) => context.validate(id)}
+                  className="form-field__input"
+                  style={getEditorStyle(context.errors, id)}
+                />
+              )}
 
-          {editor.toLowerCase() === "multilinetextbox" && (
-            <textarea
-              id={id}
-              value={value}
-              onChange={
-                (e: React.FormEvent<HTMLTextAreaElement>) => {
-                  return context.setValues({[id]: e.currentTarget.value})
-                }
-              }
-              onBlur={(e: React.FormEvent<HTMLTextAreaElement>) => context.validate(id)}
-              className="formControl"
-              style={getEditorStyle(context.errors, id)}
-            />
-          )}
-
-          {getError(context.errors, id) && (
-            <div style={{ color: "red", fontSize: "80%" }}>
-              <p>{getError(context.errors, id)}</p>
+              {editor.toLowerCase() === "multilinetextbox" && (
+                <textarea
+                  id={id}
+                  value={value}
+                  onChange={
+                    (e: React.FormEvent<HTMLTextAreaElement>) => {
+                      return context.setValues({[id]: e.currentTarget.value})
+                    }
+                  }
+                  onBlur={(e: React.FormEvent<HTMLTextAreaElement>) => context.validate(id)}
+                  className="form-field__textarea"
+                  style={getEditorStyle(context.errors, id)}
+                />
+              )}
             </div>
-          )}
-        </StyledFormField>
+
+            {getError(context.errors, id) && (
+              <div style={{ color: "red", fontSize: "80%" }}>
+                <p className="error">{getError(context.errors, id)}</p>
+              </div>
+            )}
+          </div>
+        </StyledFormCol>
       )}
     </FormContext.Consumer>
   )
