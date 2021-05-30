@@ -23,6 +23,12 @@ const SectionComponent = styled.section`
     margin-bottom: 0;
   }
 
+  @media (max-width: 768px) {
+    p:nth-child(2) {
+      grid-row: 1;
+    }
+  }
+
   @media (min-width: 768px) {
     max-width: 768px;
     justify-self: center;
