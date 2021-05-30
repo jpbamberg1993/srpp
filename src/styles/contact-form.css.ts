@@ -13,6 +13,8 @@ export const StyledContactForm = styled.form`
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    justify-self: end;
+    margin-right: 15px;
   }
 
   button:hover {
@@ -24,15 +26,11 @@ export const StyledContactForm = styled.form`
 
   button:disabled {
     background: grey;
+    color: lightgrey;
   }
 
   @media (min-width: 768px) {
     max-width: 768px;
     justify-self: center;
-
-    button {
-      justify-self: end;
-      margin-right: 15px;
-    }
   }
 `
