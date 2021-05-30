@@ -12,6 +12,12 @@ const SectionComponent = styled.section`
   height: 600px;
   border: 2px solid white;
 
+  @media (min-width: 768px) {
+    width: 768px;
+    justify-self: center;
+    margin-bottom: 3rem;
+  }
+
   .backgroundImg,
   .forgroundImg {
     position: absolute;
@@ -113,21 +119,21 @@ class BeforeAfterSlider extends React.Component<{}, State> {
   render() {
     const sliderPositionWidth: string = this.state.sliderPosition + '%'
     return (
-        <SectionComponent>
-          <div className="backgroundImg"></div>
-          <div
-            className="forgroundImg"
-            style={{ width: sliderPositionWidth }}></div>
-          <Slider
-            type="range"
-            min="1"
-            max="100"
-            value={this.state.sliderPosition}
-            name="slider"
-            id="slider"
-            onChange={this.handleChange} />
-          <SliderButton style={{ left: `calc(${sliderPositionWidth} - 17.5px)` }}></SliderButton>
-        </SectionComponent>
+      <SectionComponent>
+        <div className="backgroundImg"></div>
+        <div
+          className="forgroundImg"
+          style={{ width: sliderPositionWidth }}></div>
+        <Slider
+          type="range"
+          min="1"
+          max="100"
+          value={this.state.sliderPosition}
+          name="slider"
+          id="slider"
+          onChange={this.handleChange} />
+        <SliderButton style={{ left: `calc(${sliderPositionWidth} - 17.5px)` }}></SliderButton>
+      </SectionComponent>
     )
   }  
 }
