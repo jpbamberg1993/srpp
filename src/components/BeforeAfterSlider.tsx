@@ -15,7 +15,7 @@ const SectionComponent = styled.section`
   @media (min-width: 768px) {
     width: 768px;
     justify-self: center;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
   }
 
   .backgroundImg,
