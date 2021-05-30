@@ -23,6 +23,17 @@ const ContactList = styled.ul`
   li {
     margin-bottom: 0;
   }
+
+  @media (min-width: 481px) {
+    li:last-child {
+      margin-bottom: 6px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: 768px;
+    justify-self: center;
+  }
 `
 
 const PhoneNumberLink = styled.a`
@@ -36,6 +47,8 @@ const PhoneNumberLink = styled.a`
     & > img {
       display: none;
     }
+
+    font-size: 1.5rem;
   }
 `
 

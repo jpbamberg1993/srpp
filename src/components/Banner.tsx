@@ -22,6 +22,16 @@ const HeaderComponent = styled.header`
     padding-left: 10px;
     color: white;
   }
+
+  @media (min-width: 768px) {
+    max-height: 850px;
+
+    h1 {
+      font-size: 2.5rem;
+      width: 768px;
+      justify-self: center;
+    }
+  }
 `
 
 interface Props {
