@@ -2,6 +2,8 @@ import React from 'react'
 import { IErrors, IFormContext, FormContext } from './Form';
 import { StyledFormCol } from '../styles/form-field.css'
 import { IValidation } from '../utils/validations';
+import { IValues } from '../components/Form'
+import { maskPhoneNumber } from '../utils/masks';
 
 type Editor = 'textbox' | 'multilinetextbox'
 
@@ -61,10 +63,14 @@ export class Field extends React.Component<IFieldProps, IFieldState> {
                   <input
                     id={id}
                     type="text"
-                    value={value}
+                    value={context.values[id]}
                     onChange={
                       (e: React.FormEvent<HTMLInputElement>) => {
-                        return context.setValues({[id]: e.currentTarget.value})
+                        if (id === 'phoneNumber') {
+                          context.setValues({[id]: maskPhoneNumber(e.currentTarget.value)})
+                        } else {
+                          context.setValues({[id]: e.currentTarget.value})
+                        }
                       }
                     }
                     onFocus={() => this.setState({ active: true }) }

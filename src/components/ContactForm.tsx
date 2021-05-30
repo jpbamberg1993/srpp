@@ -3,6 +3,7 @@ import Form, { IFields } from './Form'
 import { Field } from './Field';
 import { required, isEmail, isPhoneNumber } from '../utils/validations';
 import { StyledFormRow } from '../styles/form-row.css';
+import { maskPhoneNumber } from '../utils/masks';
 
 export const ContactForm: React.FunctionComponent = () => {
   const fields: IFields = {
@@ -24,7 +25,7 @@ export const ContactForm: React.FunctionComponent = () => {
     phoneNumber: {
       id: 'phoneNumber',
       label: 'Phone number',
-      validation: { rule: isPhoneNumber }
+      validation: { rule: isPhoneNumber },
     },
     subject: {
       id: 'subject',

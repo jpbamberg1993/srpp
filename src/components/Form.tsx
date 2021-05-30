@@ -2,6 +2,7 @@ import React from 'react'
 import 'react-phone-number-input/style.css'
 import { StyledContactForm } from '../styles/contact-form.css'
 import { IFieldProps } from './Field';
+import { maskPhoneNumber } from '../utils/masks';
 
 export interface IFields {
   [key: string]: IFieldProps
@@ -157,7 +158,7 @@ class Form extends React.Component<IProps, IState> {
   private hasEmptyValues(values: IValues) {
     return values['firstName'] === "" ||
       values['lastName'] === "" ||
-      values['email'] === "" ||
+      values['phoneNumber'] === "" ||
       values['subject'] === "" ||
       values['message'] === ""
   }

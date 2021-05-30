@@ -20,7 +20,7 @@ export const isEmail = (values: IValues, fieldName: string): string =>
   ? "This must be in a valid email format"
   : "";
 
-const sanitizePhoneNumber = (phoneNumber: string): string => {
+export const sanitizePhoneNumber = (phoneNumber: string): string => {
   return phoneNumber.replace(/\D/g, '')
 }
 
