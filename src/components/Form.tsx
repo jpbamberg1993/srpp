@@ -154,6 +154,14 @@ class Form extends React.Component<IProps, IState> {
     this.setState({ values: { ...this.state.values, ...values } })
   }
 
+  private hasEmptyValues(values: IValues) {
+    return values['firstName'] === "" ||
+      values['lastName'] === "" ||
+      values['email'] === "" ||
+      values['subject'] === "" ||
+      values['message'] === ""
+  }
+
   render() {
     const { values, submitSuccess, errors } = this.state
     const context: IFormContext = {
@@ -178,7 +186,7 @@ class Form extends React.Component<IProps, IState> {
 
           {this.props.render()}
 
-          <button type="submit" disabled={this.hasErrors(errors)}>
+          <button type="submit" disabled={this.hasErrors(errors) || this.hasEmptyValues(values)}>
             Send
           </button>
 
