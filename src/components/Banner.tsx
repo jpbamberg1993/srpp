@@ -4,6 +4,7 @@ import Img, { FluidObject } from 'gatsby-image'
 import { styled } from '../styles/theme'
 
 const HeaderComponent = styled.header`
+  display: grid;
   background: black;
   position: relative;
   color: white;
@@ -14,6 +15,12 @@ const HeaderComponent = styled.header`
   .backgroundImg {
     object-fit: cover;
     opacity: 0.5;
+
+    @media (min-width: 768px) {
+      max-width: 1200px;
+      justify-self: center;
+      width: 100%;
+    }
   }
 
   h1 {
@@ -24,7 +31,7 @@ const HeaderComponent = styled.header`
   }
 
   @media (min-width: 768px) {
-    max-height: 850px;
+    max-height: 750px;
 
     h1 {
       font-size: 2.5rem;
