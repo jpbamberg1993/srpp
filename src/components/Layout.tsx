@@ -13,8 +13,8 @@ const Layout = ({children}: Props) => (
     <Helmet
       title='South Reef Property Preservation Inc'
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' }
+        { name: 'description', content: 'We specialize in eviction services and trash removal.' },
+        { name: 'keywords', content: 'Trash removal, eviction services, violation remediation' }
       ]}
     >
       <html lang="en" />
