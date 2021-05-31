@@ -9,33 +9,20 @@ interface Props {
 }
 
 const Layout = ({children}: Props) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' }
-          ]}
-        >
-          <html lang="en" />
-        </Helmet>
-        <StyledLayout>
-          {children}
-        </StyledLayout>
-      </>
-    )}
-  />
+  <>
+    <Helmet
+      title='South Reef Property Preservation Inc'
+      meta={[
+        { name: 'description', content: 'Sample' },
+        { name: 'keywords', content: 'sample, something' }
+      ]}
+    >
+      <html lang="en" />
+    </Helmet>
+    <StyledLayout>
+      {children}
+    </StyledLayout>
+  </>
 )
 
 export default Layout 
