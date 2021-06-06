@@ -4,16 +4,17 @@ import { styled } from '../styles/theme'
 import facebookIcon from '../images/facebook-icon.svg'
 import mailIcon from '../images/mail-outline-icon.svg'
 import phoneIcon from '../images/phone-icon.svg'
+import logo from '../images/logo.svg'
 
 const ContactList = styled.ul`
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(2, 50px) auto;
+  grid-template-columns: 1fr repeat(2, 50px) auto;
   justify-content: end;
   align-items: center;
   grid-gap: 10px;
   margin: 5px;
-  height: 50px;
+  height: 80px;
 
   img {
     width: 50px;
@@ -22,6 +23,15 @@ const ContactList = styled.ul`
 
   li {
     margin-bottom: 0;
+  }
+
+  li:first-child {
+    display: grid;
+    align-items: center;
+  }
+
+  li:first-child img {
+    width: 80px;
   }
 
   @media (min-width: 481px) {
@@ -54,6 +64,9 @@ const PhoneNumberLink = styled.a`
 
 const Contact: React.FC = () => (
   <ContactList>
+    <li>
+      <img src={logo} alt='logo' />
+    </li>
     <li>
       <a href='https://www.facebook.com/srppfl' rel='external'>
         <img src={facebookIcon} alt='facebook icon' />
