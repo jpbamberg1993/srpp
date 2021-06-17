@@ -73,7 +73,7 @@ const Contact: React.FC = () => (
       </a>
     </li>
     <li>
-      <a href='maitto:southreefpp@gmail.com' rel='reply-to'>
+      <a href='mailto: southreefpp@gmail.com' rel='reply-to'>
         <img src={mailIcon} alt='email me icon' />
       </a>
     </li>
